@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InstagramModelStoreContainer" CdmEntityContainer="InstagramEntities">
+    <EntitySetMapping Name="comments">
+      <EntityTypeMapping TypeName="InstagramModel.comments">
+        <MappingFragment StoreEntitySet="comments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="comment_text" ColumnName="comment_text" />
+          <ScalarProperty Name="photo_id" ColumnName="photo_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="follows">
+      <EntityTypeMapping TypeName="InstagramModel.follows">
+        <MappingFragment StoreEntitySet="follows">
+          <ScalarProperty Name="follower_id" ColumnName="follower_id" />
+          <ScalarProperty Name="followee_id" ColumnName="followee_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="likes">
+      <EntityTypeMapping TypeName="InstagramModel.likes">
+        <MappingFragment StoreEntitySet="likes">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="photo_id" ColumnName="photo_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="photos">
+      <EntityTypeMapping TypeName="InstagramModel.photos">
+        <MappingFragment StoreEntitySet="photos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="image_url" ColumnName="image_url" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tags">
+      <EntityTypeMapping TypeName="InstagramModel.tags">
+        <MappingFragment StoreEntitySet="tags">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tag_name" ColumnName="tag_name" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="InstagramModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="photo_tags" TypeName="InstagramModel.photo_tags" StoreEntitySet="photo_tags">
+      <EndProperty Name="photos">
+        <ScalarProperty Name="id" ColumnName="photo_id" />
+      </EndProperty>
+      <EndProperty Name="tags">
+        <ScalarProperty Name="id" ColumnName="tag_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

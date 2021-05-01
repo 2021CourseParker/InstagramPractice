@@ -64,6 +64,7 @@
             this.SwitchUserButton.TabIndex = 1;
             this.SwitchUserButton.Text = "Switch User";
             this.SwitchUserButton.UseVisualStyleBackColor = false;
+            this.SwitchUserButton.Click += new System.EventHandler(this.SwitchUserButton_Click);
             // 
             // pictureBox
             // 
@@ -163,7 +164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1510, 646);
+            this.ClientSize = new System.Drawing.Size(1518, 663);
             this.Controls.Add(this.AddCommentsButton);
             this.Controls.Add(this.AddCommentsTextBox);
             this.Controls.Add(this.CommentsLabel);
@@ -176,8 +177,10 @@
             this.Controls.Add(this.SwitchUserButton);
             this.Controls.Add(this.UserNameListBox);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

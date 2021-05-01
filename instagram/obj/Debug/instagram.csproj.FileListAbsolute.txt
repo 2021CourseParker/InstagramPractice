@@ -1,0 +1,16 @@
+C:\Users\Parker Li\source\repos\instagram\instagram\bin\Debug\instagram.exe.config
+C:\Users\Parker Li\source\repos\instagram\instagram\bin\Debug\instagram.exe
+C:\Users\Parker Li\source\repos\instagram\instagram\bin\Debug\instagram.pdb
+C:\Users\Parker Li\source\repos\instagram\instagram\bin\Debug\EntityFramework.dll
+C:\Users\Parker Li\source\repos\instagram\instagram\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Parker Li\source\repos\instagram\instagram\bin\Debug\EntityFramework.xml
+C:\Users\Parker Li\source\repos\instagram\instagram\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Parker Li\source\repos\instagram\instagram\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\Parker Li\source\repos\instagram\instagram\obj\Debug\instagram.csprojAssemblyReference.cache
+C:\Users\Parker Li\source\repos\instagram\instagram\obj\Debug\instagram.Form1.resources
+C:\Users\Parker Li\source\repos\instagram\instagram\obj\Debug\instagram.Properties.Resources.resources
+C:\Users\Parker Li\source\repos\instagram\instagram\obj\Debug\instagram.csproj.GenerateResource.cache
+C:\Users\Parker Li\source\repos\instagram\instagram\obj\Debug\instagram.csproj.CoreCompileInputs.cache
+C:\Users\Parker Li\source\repos\instagram\instagram\obj\Debug\instagram.csproj.CopyComplete
+C:\Users\Parker Li\source\repos\instagram\instagram\obj\Debug\instagram.exe
+C:\Users\Parker Li\source\repos\instagram\instagram\obj\Debug\instagram.pdb
