@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="InstagramModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="comments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="comment_text" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="photo_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="created_at" Type="datetime" />
+        </EntityType>
+        <EntityType Name="follows">
+          <Key>
+            <PropertyRef Name="follower_id" />
+            <PropertyRef Name="followee_id" />
+          </Key>
+          <Property Name="follower_id" Type="int" Nullable="false" />
+          <Property Name="followee_id" Type="int" Nullable="false" />
+          <Property Name="created_at" Type="datetime" />
+        </EntityType>
+        <EntityType Name="likes">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="photo_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="photo_id" Type="int" Nullable="false" />
+          <Property Name="created_at" Type="datetime" />
+        </EntityType>
+        <EntityType Name="photo_tags">
+          <Key>
+            <PropertyRef Name="photo_id" />
+            <PropertyRef Name="tag_id" />
+          </Key>
+          <Property Name="photo_id" Type="int" Nullable="false" />
+          <Property Name="tag_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="photos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="image_url" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="created_at" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tags">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tag_name" Type="varchar" MaxLength="255" />
+          <Property Name="created_at" Type="datetime" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="created_at" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__comments__photo___3F466844">
+          <End Role="photos" Type="Self.photos" Multiplicity="1" />
+          <End Role="comments" Type="Self.comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="photos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="comments">
+              <PropertyRef Name="photo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__comments__user_i__403A8C7D">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="comments" Type="Self.comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="comments">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__follows__followe__48CFD27E">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="follows" Type="Self.follows" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="follows">
+              <PropertyRef Name="follower_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__follows__followe__49C3F6B7">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="follows" Type="Self.follows" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="follows">
+              <PropertyRef Name="followee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__likes__photo_id__44FF419A">
+          <End Role="photos" Type="Self.photos" Multiplicity="1" />
+          <End Role="likes" Type="Self.likes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="photos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="likes">
+              <PropertyRef Name="photo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__likes__user_id__440B1D61">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="likes" Type="Self.likes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="likes">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__photo_tag__photo__5070F446">
+          <End Role="photos" Type="Self.photos" Multiplicity="1" />
+          <End Role="photo_tags" Type="Self.photo_tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="photos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="photo_tags">
+              <PropertyRef Name="photo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__photo_tag__tag_i__5165187F">
+          <End Role="tags" Type="Self.tags" Multiplicity="1" />
+          <End Role="photo_tags" Type="Self.photo_tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tags">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="photo_tags">
+              <PropertyRef Name="tag_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__photos__user_id__3B75D760">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="photos" Type="Self.photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="photos">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InstagramModelStoreContainer">
+          <EntitySet Name="comments" EntityType="Self.comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="follows" EntityType="Self.follows" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="likes" EntityType="Self.likes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="photo_tags" EntityType="Self.photo_tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="photos" EntityType="Self.photos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tags" EntityType="Self.tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__comments__photo___3F466844" Association="Self.FK__comments__photo___3F466844">
+            <End Role="photos" EntitySet="photos" />
+            <End Role="comments" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__comments__user_i__403A8C7D" Association="Self.FK__comments__user_i__403A8C7D">
+            <End Role="users" EntitySet="users" />
+            <End Role="comments" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__follows__followe__48CFD27E" Association="Self.FK__follows__followe__48CFD27E">
+            <End Role="users" EntitySet="users" />
+            <End Role="follows" EntitySet="follows" />
+          </AssociationSet>
+          <AssociationSet Name="FK__follows__followe__49C3F6B7" Association="Self.FK__follows__followe__49C3F6B7">
+            <End Role="users" EntitySet="users" />
+            <End Role="follows" EntitySet="follows" />
+          </AssociationSet>
+          <AssociationSet Name="FK__likes__photo_id__44FF419A" Association="Self.FK__likes__photo_id__44FF419A">
+            <End Role="photos" EntitySet="photos" />
+            <End Role="likes" EntitySet="likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__likes__user_id__440B1D61" Association="Self.FK__likes__user_id__440B1D61">
+            <End Role="users" EntitySet="users" />
+            <End Role="likes" EntitySet="likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__photo_tag__photo__5070F446" Association="Self.FK__photo_tag__photo__5070F446">
+            <End Role="photos" EntitySet="photos" />
+            <End Role="photo_tags" EntitySet="photo_tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__photo_tag__tag_i__5165187F" Association="Self.FK__photo_tag__tag_i__5165187F">
+            <End Role="tags" EntitySet="tags" />
+            <End Role="photo_tags" EntitySet="photo_tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__photos__user_id__3B75D760" Association="Self.FK__photos__user_id__3B75D760">
+            <End Role="users" EntitySet="users" />
+            <End Role="photos" EntitySet="photos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InstagramModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="comments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="comment_text" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="photo_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="photos" Relationship="Self.FK__comments__photo___3F466844" FromRole="comments" ToRole="photos" />
+          <NavigationProperty Name="users" Relationship="Self.FK__comments__user_i__403A8C7D" FromRole="comments" ToRole="users" />
+        </EntityType>
+        <EntityType Name="follows">
+          <Key>
+            <PropertyRef Name="follower_id" />
+            <PropertyRef Name="followee_id" />
+          </Key>
+          <Property Name="follower_id" Type="Int32" Nullable="false" />
+          <Property Name="followee_id" Type="Int32" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="users" Relationship="Self.FK__follows__followe__48CFD27E" FromRole="follows" ToRole="users" />
+          <NavigationProperty Name="users1" Relationship="Self.FK__follows__followe__49C3F6B7" FromRole="follows" ToRole="users" />
+        </EntityType>
+        <EntityType Name="likes">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="photo_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="photo_id" Type="Int32" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="photos" Relationship="Self.FK__likes__photo_id__44FF419A" FromRole="likes" ToRole="photos" />
+          <NavigationProperty Name="users" Relationship="Self.FK__likes__user_id__440B1D61" FromRole="likes" ToRole="users" />
+        </EntityType>
+        <EntityType Name="photos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="image_url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="comments" Relationship="Self.FK__comments__photo___3F466844" FromRole="photos" ToRole="comments" />
+          <NavigationProperty Name="likes" Relationship="Self.FK__likes__photo_id__44FF419A" FromRole="photos" ToRole="likes" />
+          <NavigationProperty Name="users" Relationship="Self.FK__photos__user_id__3B75D760" FromRole="photos" ToRole="users" />
+          <NavigationProperty Name="tags" Relationship="Self.photo_tags" FromRole="photos" ToRole="tags" />
+        </EntityType>
+        <EntityType Name="tags">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tag_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="photos" Relationship="Self.photo_tags" FromRole="tags" ToRole="photos" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="comments" Relationship="Self.FK__comments__user_i__403A8C7D" FromRole="users" ToRole="comments" />
+          <NavigationProperty Name="follows" Relationship="Self.FK__follows__followe__48CFD27E" FromRole="users" ToRole="follows" />
+          <NavigationProperty Name="follows1" Relationship="Self.FK__follows__followe__49C3F6B7" FromRole="users" ToRole="follows" />
+          <NavigationProperty Name="likes" Relationship="Self.FK__likes__user_id__440B1D61" FromRole="users" ToRole="likes" />
+          <NavigationProperty Name="photos" Relationship="Self.FK__photos__user_id__3B75D760" FromRole="users" ToRole="photos" />
+        </EntityType>
+        <Association Name="FK__comments__photo___3F466844">
+          <End Role="photos" Type="Self.photos" Multiplicity="1" />
+          <End Role="comments" Type="Self.comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="photos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="comments">
+              <PropertyRef Name="photo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__comments__user_i__403A8C7D">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="comments" Type="Self.comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="comments">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__follows__followe__48CFD27E">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="follows" Type="Self.follows" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="follows">
+              <PropertyRef Name="follower_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__follows__followe__49C3F6B7">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="follows" Type="Self.follows" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="follows">
+              <PropertyRef Name="followee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__likes__photo_id__44FF419A">
+          <End Role="photos" Type="Self.photos" Multiplicity="1" />
+          <End Role="likes" Type="Self.likes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="photos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="likes">
+              <PropertyRef Name="photo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__likes__user_id__440B1D61">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="likes" Type="Self.likes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="likes">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__photos__user_id__3B75D760">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="photos" Type="Self.photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="photos">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="photo_tags">
+          <End Role="photos" Type="Self.photos" Multiplicity="*" />
+          <End Role="tags" Type="Self.tags" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="InstagramEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="comments" EntityType="Self.comments" />
+          <EntitySet Name="follows" EntityType="Self.follows" />
+          <EntitySet Name="likes" EntityType="Self.likes" />
+          <EntitySet Name="photos" EntityType="Self.photos" />
+          <EntitySet Name="tags" EntityType="Self.tags" />
+          <EntitySet Name="users" EntityType="Self.users" />
+          <AssociationSet Name="FK__comments__photo___3F466844" Association="Self.FK__comments__photo___3F466844">
+            <End Role="photos" EntitySet="photos" />
+            <End Role="comments" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__comments__user_i__403A8C7D" Association="Self.FK__comments__user_i__403A8C7D">
+            <End Role="users" EntitySet="users" />
+            <End Role="comments" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__follows__followe__48CFD27E" Association="Self.FK__follows__followe__48CFD27E">
+            <End Role="users" EntitySet="users" />
+            <End Role="follows" EntitySet="follows" />
+          </AssociationSet>
+          <AssociationSet Name="FK__follows__followe__49C3F6B7" Association="Self.FK__follows__followe__49C3F6B7">
+            <End Role="users" EntitySet="users" />
+            <End Role="follows" EntitySet="follows" />
+          </AssociationSet>
+          <AssociationSet Name="FK__likes__photo_id__44FF419A" Association="Self.FK__likes__photo_id__44FF419A">
+            <End Role="photos" EntitySet="photos" />
+            <End Role="likes" EntitySet="likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__likes__user_id__440B1D61" Association="Self.FK__likes__user_id__440B1D61">
+            <End Role="users" EntitySet="users" />
+            <End Role="likes" EntitySet="likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__photos__user_id__3B75D760" Association="Self.FK__photos__user_id__3B75D760">
+            <End Role="users" EntitySet="users" />
+            <End Role="photos" EntitySet="photos" />
+          </AssociationSet>
+          <AssociationSet Name="photo_tags" Association="Self.photo_tags">
+            <End Role="photos" EntitySet="photos" />
+            <End Role="tags" EntitySet="tags" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InstagramModelStoreContainer" CdmEntityContainer="InstagramEntities">
+          <EntitySetMapping Name="comments">
+            <EntityTypeMapping TypeName="InstagramModel.comments">
+              <MappingFragment StoreEntitySet="comments">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="comment_text" ColumnName="comment_text" />
+                <ScalarProperty Name="photo_id" ColumnName="photo_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="follows">
+            <EntityTypeMapping TypeName="InstagramModel.follows">
+              <MappingFragment StoreEntitySet="follows">
+                <ScalarProperty Name="follower_id" ColumnName="follower_id" />
+                <ScalarProperty Name="followee_id" ColumnName="followee_id" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="likes">
+            <EntityTypeMapping TypeName="InstagramModel.likes">
+              <MappingFragment StoreEntitySet="likes">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="photo_id" ColumnName="photo_id" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="photos">
+            <EntityTypeMapping TypeName="InstagramModel.photos">
+              <MappingFragment StoreEntitySet="photos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="image_url" ColumnName="image_url" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tags">
+            <EntityTypeMapping TypeName="InstagramModel.tags">
+              <MappingFragment StoreEntitySet="tags">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tag_name" ColumnName="tag_name" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="InstagramModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="photo_tags" TypeName="InstagramModel.photo_tags" StoreEntitySet="photo_tags">
+            <EndProperty Name="photos">
+              <ScalarProperty Name="id" ColumnName="photo_id" />
+            </EndProperty>
+            <EndProperty Name="tags">
+              <ScalarProperty Name="id" ColumnName="tag_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
