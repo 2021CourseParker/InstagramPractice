@@ -58,6 +58,7 @@
     <Compile Include="comments.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBUpdater.cs" />
     <Compile Include="follows.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

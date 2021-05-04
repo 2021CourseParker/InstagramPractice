@@ -37,18 +37,21 @@ namespace instagram
 
                 UserNameListBox.SetSelected(0, true);
 
-
+                //Added in order to update Photos table image_url values:
+                DBUpdater updater = new DBUpdater();
+                updater.UpdatePhotoUrls();
             }
         }
 
         private void SwitchUserButton_Click(object sender, EventArgs e)
         {
-        //    using (InstagramEntities db = new InstagramEntities())
-        //    {
-              
-        //        MessageBox.Show(UserNameListBox.SelectedItem.ToString());
+            //    using (InstagramEntities db = new InstagramEntities())
+            //    {
 
-        //  }
+            //        MessageBox.Show(UserNameListBox.SelectedItem.ToString());
+
+            //  }            
         }
+
     }
 }

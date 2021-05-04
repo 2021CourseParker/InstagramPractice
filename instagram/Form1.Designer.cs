@@ -45,12 +45,12 @@
             // UserNameListBox
             // 
             this.UserNameListBox.BackColor = System.Drawing.SystemColors.Control;
-            this.UserNameListBox.Font = new System.Drawing.Font("Liberation Sans", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserNameListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserNameListBox.FormattingEnabled = true;
-            this.UserNameListBox.ItemHeight = 30;
-            this.UserNameListBox.Location = new System.Drawing.Point(12, 28);
+            this.UserNameListBox.ItemHeight = 31;
+            this.UserNameListBox.Location = new System.Drawing.Point(12, 30);
             this.UserNameListBox.Name = "UserNameListBox";
-            this.UserNameListBox.Size = new System.Drawing.Size(417, 514);
+            this.UserNameListBox.Size = new System.Drawing.Size(417, 531);
             this.UserNameListBox.TabIndex = 0;
             // 
             // SwitchUserButton
@@ -58,9 +58,9 @@
             this.SwitchUserButton.BackColor = System.Drawing.Color.ForestGreen;
             this.SwitchUserButton.Font = new System.Drawing.Font("Ink Free", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SwitchUserButton.ForeColor = System.Drawing.Color.Gainsboro;
-            this.SwitchUserButton.Location = new System.Drawing.Point(12, 559);
+            this.SwitchUserButton.Location = new System.Drawing.Point(12, 606);
             this.SwitchUserButton.Name = "SwitchUserButton";
-            this.SwitchUserButton.Size = new System.Drawing.Size(417, 60);
+            this.SwitchUserButton.Size = new System.Drawing.Size(417, 65);
             this.SwitchUserButton.TabIndex = 1;
             this.SwitchUserButton.Text = "Switch User";
             this.SwitchUserButton.UseVisualStyleBackColor = false;
@@ -68,9 +68,9 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(513, 28);
+            this.pictureBox.Location = new System.Drawing.Point(513, 30);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(586, 534);
+            this.pictureBox.Size = new System.Drawing.Size(586, 579);
             this.pictureBox.TabIndex = 2;
             this.pictureBox.TabStop = false;
             // 
@@ -79,9 +79,9 @@
             this.NextImageButton.BackColor = System.Drawing.Color.ForestGreen;
             this.NextImageButton.Font = new System.Drawing.Font("Ink Free", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NextImageButton.ForeColor = System.Drawing.Color.Gainsboro;
-            this.NextImageButton.Location = new System.Drawing.Point(513, 559);
+            this.NextImageButton.Location = new System.Drawing.Point(513, 606);
             this.NextImageButton.Name = "NextImageButton";
-            this.NextImageButton.Size = new System.Drawing.Size(586, 60);
+            this.NextImageButton.Size = new System.Drawing.Size(586, 65);
             this.NextImageButton.TabIndex = 3;
             this.NextImageButton.Text = "Next Image";
             this.NextImageButton.UseVisualStyleBackColor = false;
@@ -90,7 +90,7 @@
             // 
             this.UserNameLabel.AutoSize = true;
             this.UserNameLabel.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserNameLabel.Location = new System.Drawing.Point(1143, 28);
+            this.UserNameLabel.Location = new System.Drawing.Point(1143, 30);
             this.UserNameLabel.Name = "UserNameLabel";
             this.UserNameLabel.Size = new System.Drawing.Size(93, 36);
             this.UserNameLabel.TabIndex = 4;
@@ -100,7 +100,7 @@
             // 
             this.LikesLabel.AutoSize = true;
             this.LikesLabel.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LikesLabel.Location = new System.Drawing.Point(1143, 64);
+            this.LikesLabel.Location = new System.Drawing.Point(1143, 69);
             this.LikesLabel.Name = "LikesLabel";
             this.LikesLabel.Size = new System.Drawing.Size(54, 36);
             this.LikesLabel.TabIndex = 5;
@@ -110,10 +110,10 @@
             // 
             this.TagsTextBox.BackColor = System.Drawing.SystemColors.Control;
             this.TagsTextBox.Font = new System.Drawing.Font("Javanese Text", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TagsTextBox.Location = new System.Drawing.Point(1145, 93);
+            this.TagsTextBox.Location = new System.Drawing.Point(1145, 101);
             this.TagsTextBox.Multiline = true;
             this.TagsTextBox.Name = "TagsTextBox";
-            this.TagsTextBox.Size = new System.Drawing.Size(331, 156);
+            this.TagsTextBox.Size = new System.Drawing.Size(331, 169);
             this.TagsTextBox.TabIndex = 6;
             // 
             // CommentsListBox
@@ -122,7 +122,7 @@
             this.CommentsListBox.Font = new System.Drawing.Font("Javanese Text", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CommentsListBox.FormattingEnabled = true;
             this.CommentsListBox.ItemHeight = 62;
-            this.CommentsListBox.Location = new System.Drawing.Point(1145, 289);
+            this.CommentsListBox.Location = new System.Drawing.Point(1145, 313);
             this.CommentsListBox.Name = "CommentsListBox";
             this.CommentsListBox.Size = new System.Drawing.Size(331, 128);
             this.CommentsListBox.TabIndex = 7;
@@ -131,7 +131,7 @@
             // 
             this.CommentsLabel.AutoSize = true;
             this.CommentsLabel.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CommentsLabel.Location = new System.Drawing.Point(1143, 252);
+            this.CommentsLabel.Location = new System.Drawing.Point(1143, 273);
             this.CommentsLabel.Name = "CommentsLabel";
             this.CommentsLabel.Size = new System.Drawing.Size(86, 36);
             this.CommentsLabel.TabIndex = 8;
@@ -142,10 +142,10 @@
             // 
             this.AddCommentsTextBox.BackColor = System.Drawing.Color.White;
             this.AddCommentsTextBox.Font = new System.Drawing.Font("Javanese Text", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddCommentsTextBox.Location = new System.Drawing.Point(1145, 458);
+            this.AddCommentsTextBox.Location = new System.Drawing.Point(1145, 496);
             this.AddCommentsTextBox.Multiline = true;
             this.AddCommentsTextBox.Name = "AddCommentsTextBox";
-            this.AddCommentsTextBox.Size = new System.Drawing.Size(331, 104);
+            this.AddCommentsTextBox.Size = new System.Drawing.Size(331, 112);
             this.AddCommentsTextBox.TabIndex = 9;
             // 
             // AddCommentsButton
@@ -153,18 +153,18 @@
             this.AddCommentsButton.BackColor = System.Drawing.Color.ForestGreen;
             this.AddCommentsButton.Font = new System.Drawing.Font("Ink Free", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddCommentsButton.ForeColor = System.Drawing.Color.Gainsboro;
-            this.AddCommentsButton.Location = new System.Drawing.Point(1145, 559);
+            this.AddCommentsButton.Location = new System.Drawing.Point(1145, 606);
             this.AddCommentsButton.Name = "AddCommentsButton";
-            this.AddCommentsButton.Size = new System.Drawing.Size(331, 60);
+            this.AddCommentsButton.Size = new System.Drawing.Size(331, 65);
             this.AddCommentsButton.TabIndex = 10;
             this.AddCommentsButton.Text = "Add Comments";
             this.AddCommentsButton.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1518, 663);
+            this.ClientSize = new System.Drawing.Size(1518, 718);
             this.Controls.Add(this.AddCommentsButton);
             this.Controls.Add(this.AddCommentsTextBox);
             this.Controls.Add(this.CommentsLabel);
